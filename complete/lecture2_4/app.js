@@ -29,7 +29,7 @@ class App{
 		const shape = new THREE.Shape();
 		const outerRadius = 1;
 		const innerRadius = .5;
-		const PI2 =Math.PI2 ; 
+		const PI2 =Math.PI*3; 
 		const inc = PI2/77;
 		
 		
