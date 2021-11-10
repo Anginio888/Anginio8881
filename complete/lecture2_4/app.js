@@ -30,7 +30,7 @@ class App{
 		const outerRadius = 1;
 		const innerRadius = .5;
 		const PI2 =Math.PI*7 ; 
-		const inc = PI2/777;
+		const inc = PI2/77;
 		
 		
 		
