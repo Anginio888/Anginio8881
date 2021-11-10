@@ -39,7 +39,7 @@ class App{
 		
 		
 		
-		for (let theta = inc ; theta<PI2, theta+= inc){
+		for (let theta = inc ; theta<PI2; theta+= inc){
 		
 		const radius = (inner ) ? innerRadius : outerRadius;
 			
