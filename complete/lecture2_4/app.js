@@ -26,11 +26,11 @@ class App{
 		
         //Replace Box with Circle, Cone, Cylinder, Dodecahedron, Icosahedron, Octahedron, Plane, Sphere, Tetrahedron, Torus or TorusKnot
 
-		const shape = new THREE.shape();
+		const shape = new THREE.Shape();
 		const outerRadius = 0.8;
 		const innerRadius = 0.4;
 		const PI2 =Math.PI*2 ; 
-		const inc 0 PI2/10;
+		const inc = PI2/10;
 		
 		
 		
