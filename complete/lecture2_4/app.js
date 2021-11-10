@@ -37,6 +37,8 @@ class App{
 		shape.moveTo (outerRadius,0);
 		let inner = true;
 		
+		
+		
 		for (let theta = inc ; theta<PI2, theta+= inc){
 		
 		const radius = (inner ) ? innerRadius : outerRadius;
@@ -50,7 +52,7 @@ class App{
 		const extrudeSettings = {
 		steps : 1,
 			depth :1,
-			bevelEnable:false
+			bevelEnabled :false
 			
 			
 		
