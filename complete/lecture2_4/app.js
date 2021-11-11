@@ -61,7 +61,7 @@ class App{
 		
 		const geometry = new THREE.ExtrudeGeometry (shape, extruddeSettings);
 		
-		const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
+		const material = new THREE.MeshPhongMaterial( { color: 0xFF0000 ,specular :0x444444 ,shininess :60 });
 
         this.mesh = new THREE.Mesh( geometry, material );
         
