@@ -54,21 +54,21 @@ class App{
     initScene(){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fmodel%201.glb?v=1637598916074';
+        this.assetsPath = '../../assets/';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
 		// Load a GLTF resource
 		loader.load(
 			// resource URL
-			`model 1.glb`,
+			`knight2.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				const object = gltf.scene.children[5];
 				
 				object.traverse(function(child){
 					if (child.isMesh){
-                        child.material.metalness = 1;
+                        child.material.metalness = 0;
                         child.material.roughness = 1;
 					}
 				});
@@ -79,16 +79,16 @@ class App{
 					animations: gltf.animations,
 					clip: gltf.animations[0],
 					app: self,
-					name: 'model',
+					name: 'knight',
 					npc: false
 				};
 				
-				self.model = new Player(options);
-                self.model.object.visible = false;
+				self.knight = new Player(options);
+                self.knight.object.visible = false;
 				
-				self.model.action = 'ArmatureAction';
+				self.knight.action = 'Dance';
 				const scale = 0.003;
-				self.model.object.scale.set(scale, scale, scale); 
+				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
 			},
@@ -146,10 +146,10 @@ class App{
         this.gestures.addEventListener( 'tap', (ev)=>{
             //console.log( 'tap' ); 
             self.ui.updateElement('info', 'tap' );
-            if (!self.model.object.visible){
-                self.model.object.visible = true;
-                self.model.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.scene.add( self.model.object ); 
+            if (!self.knight.object.visible){
+                self.knight.object.visible = true;
+                self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
+                self.scene.add( self.knight.object ); 
             }
         });
         this.gestures.addEventListener( 'doubletap', (ev)=>{
@@ -173,28 +173,28 @@ class App{
         this.gestures.addEventListener( 'swipe', (ev)=>{
             //console.log( ev );   
             self.ui.updateElement('info', `swipe ${ev.direction}` );
-            if (self.model.object.visible){
-                self.model.object.visible = false;
-                self.scene.remove( self.model.object ); 
+            if (self.knight.object.visible){
+                self.knight.object.visible = false;
+                self.scene.remove( self.knight.object ); 
             }
         });
         this.gestures.addEventListener( 'pinch', (ev)=>{
             //console.log( ev );  
             if (ev.initialise !== undefined){
-                self.startScale = self.model.object.scale.clone();
+                self.startScale = self.knight.object.scale.clone();
             }else{
                 const scale = self.startScale.clone().multiplyScalar(ev.scale);
-                self.model.object.scale.copy( scale );
+                self.knight.object.scale.copy( scale );
                 self.ui.updateElement('info', `pinch delta:${ev.delta.toFixed(3)} scale:${ev.scale.toFixed(2)}` );
             }
         });
         this.gestures.addEventListener( 'rotate', (ev)=>{
             //      sconsole.log( ev ); 
             if (ev.initialise !== undefined){
-                self.startQuaternion = self.model.object.quaternion.clone();
+                self.startQuaternion = self.knight.object.quaternion.clone();
             }else{
-                self.model.object.quaternion.copy( self.startQuaternion );
-                self.model.object.rotateY( ev.theta );
+                self.knight.object.quaternion.copy( self.startQuaternion );
+                self.knight.object.rotateY( ev.theta );
                 self.ui.updateElement('info', `rotate ${ev.theta.toFixed(3)}`  );
             }
         });
@@ -215,7 +215,7 @@ class App{
             this.gestures.update();
             this.ui.update();
         }
-        if ( this.model !== undefined ) this.model.update(dt);
+        if ( this.knight !== undefined ) this.knight.update(dt);
         this.renderer.render( this.scene, this.camera );
     }
 }
