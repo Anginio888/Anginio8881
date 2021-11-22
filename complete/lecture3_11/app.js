@@ -68,7 +68,7 @@ class App{
 				
 				object.traverse(function(child){
 					if (child.isMesh){
-                        child.material.metalness = 0;
+                        child.material.metalness = 1;
                         child.material.roughness = 1;
 					}
 				});
@@ -87,7 +87,7 @@ class App{
                 self.knight.object.visible = false;
 				
 				self.knight.action = 'Dance';
-				const scale = 0.003;
+				const scale = 0.03;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
