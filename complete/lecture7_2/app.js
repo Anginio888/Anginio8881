@@ -14,7 +14,7 @@ class App{
         
         this.loadingBar = new LoadingBar();
 
-		this.assetsPath = '../../assets/';
+		this.assetsPath = 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fmodel%201.glb?v=1637598916074';
         
 		this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
 		this.camera.position.set( 0, 0, 0 );
@@ -79,7 +79,7 @@ class App{
         // Load a GLTF resource
 		loader.load(
 			// resource URL
-			`steampunk_camera.glb`,
+			`model 1.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.model = gltf.scene;
