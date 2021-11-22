@@ -59,8 +59,8 @@ class App{
     }
 
     initLine(point) {
-        const lineMaterial = new THREE.LinePhysicalMaterial({
-        depthTest:false,
+        const lineMaterial = new THREE.LineBasicMaterial({
+     
 		color: 0xffffff,
             linewidth: 5,
             linecap: 'round'
