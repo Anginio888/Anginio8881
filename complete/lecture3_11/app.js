@@ -54,14 +54,14 @@ class App{
     initScene(){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = '../../assets/';
+        this.assetsPath = 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fmodel%201.glb?v=1637598916074';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
 		// Load a GLTF resource
 		loader.load(
 			// resource URL
-			`knight2.glb`,
+			`model 1.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				const object = gltf.scene.children[5];
@@ -79,16 +79,16 @@ class App{
 					animations: gltf.animations,
 					clip: gltf.animations[0],
 					app: self,
-					name: 'knight',
+					name: 'model',
 					npc: false
 				};
 				
-				self.knight = new Player(options);
-                self.knight.object.visible = false;
+				self.model = new Player(options);
+                self.model.object.visible = false;
 				
-				self.knight.action = 'Dance';
+				self.model.action = 'ArmatureAction';
 				const scale = 0.003;
-				self.knight.object.scale.set(scale, scale, scale); 
+				self.model.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
 			},
