@@ -11,6 +11,7 @@ class App{
 		this.camera.position.set( 0, 1.6, 3 );
         
 		this.scene = new THREE.Scene();
+	
 
 		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 2);
         ambient.position.set( 0.5, 1, 0.25 );
@@ -44,6 +45,18 @@ class App{
         this.renderer.setAnimationLoop( this.render.bind(this) );
 		
 		window.addEventListener('resize', this.resize.bind(this));
+		
+		
+		
+		
+	const texture = new THREE.TextureLoader().load( "https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2FSketchUp_Fantasy_Valley_2_Normal_4096.png?v=1637612092870" );
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+texture.repeat.set( 4, 4 );
+	
+	
+	
+	
         
 	}
 	
@@ -64,7 +77,8 @@ class App{
 		shininess:70,
             color: 0xffffff,
             linewidth: 5,
-            linecap: 'round'
+            linecap: 'round',
+	normalMap : texture
         });
 
         const lineGeometry = new THREE.BufferGeometry().setFromPoints([point, point]);
