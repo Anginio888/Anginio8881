@@ -90,7 +90,7 @@ class App{
                 self.lense.userData.startQuat = self.lense.quaternion.clone();
                 
                 const mixer = new THREE.AnimationMixer( self.model );
-                const action = mixer.clipAction( gltf.animations[0] );
+                const action = mixer.clipAction( gltf.animations[1] );
                 action.loop = THREE.LoopOnce;
                 self.action = action;
                 
