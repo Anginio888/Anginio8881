@@ -63,11 +63,11 @@ class App{
     initLine(point) {
         const lineMaterial = new THREE.LinePhongMaterial({
 		specular: 0x444444,
-		shininess:70,
+		shininess:100,
             color: 0xffffff,
             linewidth: 5,
             linecap: 'round',
-	wireframe:1.5
+	
         });
 
         const lineGeometry = new THREE.BufferGeometry().setFromPoints([point, point]);
