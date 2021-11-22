@@ -77,7 +77,7 @@ class App{
 					object: object,
 					speed: 0.5,
 					animations: gltf.animations,
-					clip: gltf.animations[0],
+					clip: gltf.animations[1],
 					app: self,
 					name: 'knight',
 					npc: false
