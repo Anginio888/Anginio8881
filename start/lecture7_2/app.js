@@ -79,7 +79,7 @@ class App{
         // Load a GLTF resource
 		loader.load(
 			// resource URL
-			`model_1.glb`,
+			`https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fmodel_1.glb?v=1637621870134`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.model = gltf.scene;
