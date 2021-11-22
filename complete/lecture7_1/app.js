@@ -61,9 +61,8 @@ class App{
     }
 
     initLine(point) {
-        const lineMaterial = new THREE.LinePhongMaterial({
-		specular: 0x444444,
-		shininess:100,
+        const lineMaterial = new THREE.LineBasicMaterial({
+	
             color: 0xffffff,
             linewidth: 5,
             linecap: 'round',
