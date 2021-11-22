@@ -54,7 +54,7 @@ class App{
     initScene(){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fknight.2.glb?v=1637601428992';
+        this.assetsPath = '../../assets/';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
