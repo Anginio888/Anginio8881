@@ -203,9 +203,9 @@ class App{
             const msg = this.createMsg( pos, rot );
             this.ui.updateElement("msg", msg);
 		this.meshes.forEach( (mesh) => { mesh.rotateY( 0.01 );mesh.rotateX( 0.01 );mesh.rotateZ( 0.01 ); });
-		this.renderer.render( this.scene, this.camera );
+		
         }
-        
+        this.renderer.render( this.scene, this.camera );
     }
 }
 
