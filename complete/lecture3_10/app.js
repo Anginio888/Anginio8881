@@ -56,10 +56,7 @@ class App{
 	}	
     
     initScene(){
-	    this.geometry = new THREE.BoxBufferGeometry( 0.07, .07* Math.random(), 0.07 ); 
-        this.meshes = [];
-	    
-	    this.dummyCam = new THREE.Object3D();
+        this.dummyCam = new THREE.Object3D();
         this.camera.add( this.dummyCam );
         
         this.createUI();
@@ -133,35 +130,8 @@ class App{
                 } );
             }
         }
-         setupVR(){
-        this.renderer.xr.enabled = true; 
         
-        const self = this;
-        let controller;
-        
-        function onSelect() {
-            const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-            const mesh = new THREE.Mesh( self.geometry, material );
-            mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
-            mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-            self.scene.add( mesh );
-            self.meshes.push( mesh );
-
-        }
-		 
-		      const btn = new ARButton( this.renderer );
-        
-        controller = this.renderer.xr.getController( 0 );
-        controller.addEventListener( 'select', onSelect );
-        this.scene.add( controller );
-        
-        this.renderer.setAnimationLoop( this.render.bind(this) );
-    }
-	    
-	    
-	    
-		 
-		 function onSessionStart(){
+        function onSessionStart(){
             self.ui.mesh.position.set( 0, -0.5, -1.1 );
             self.camera.add( self.ui.mesh );
         }
@@ -202,8 +172,6 @@ class App{
             const rot = this.euler;
             const msg = this.createMsg( pos, rot );
             this.ui.updateElement("msg", msg);
-		this.meshes.forEach( (mesh) => { mesh.rotateY( 0.01 );mesh.rotateX( 0.01 );mesh.rotateZ( 0.01 ); });
-		
         }
         this.renderer.render( this.scene, this.camera );
     }
