@@ -11,7 +11,6 @@ class App{
 		this.camera.position.set( 0, 1.6, 3 );
         
 		this.scene = new THREE.Scene();
-	
 
 		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 2);
         ambient.position.set( 0.5, 1, 0.25 );
@@ -45,8 +44,7 @@ class App{
         this.renderer.setAnimationLoop( this.render.bind(this) );
 		
 		window.addEventListener('resize', this.resize.bind(this));
-		
-
+        
 	}
 	
     resize(){ 
@@ -62,11 +60,9 @@ class App{
 
     initLine(point) {
         const lineMaterial = new THREE.LineBasicMaterial({
-	
             color: 0xffffff,
             linewidth: 5,
-            linecap: 'round',
-	
+            linecap: 'round'
         });
 
         const lineGeometry = new THREE.BufferGeometry().setFromPoints([point, point]);
