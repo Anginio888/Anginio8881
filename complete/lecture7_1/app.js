@@ -46,18 +46,7 @@ class App{
 		
 		window.addEventListener('resize', this.resize.bind(this));
 		
-		
-		
-		
-	const texture = new THREE.TextureLoader().load( "https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2FSketchUp_Fantasy_Valley_2_Normal_4096.png?v=1637612092870" );
-texture.wrapS = THREE.RepeatWrapping;
-texture.wrapT = THREE.RepeatWrapping;
-texture.repeat.set( 4, 4 );
-	
-	
-	
-	
-        
+
 	}
 	
     resize(){ 
@@ -78,7 +67,7 @@ texture.repeat.set( 4, 4 );
             color: 0xffffff,
             linewidth: 5,
             linecap: 'round',
-	normalMap : texture
+	wireframe:1.5
         });
 
         const lineGeometry = new THREE.BufferGeometry().setFromPoints([point, point]);
