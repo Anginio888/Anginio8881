@@ -54,7 +54,7 @@ class App{
     initScene(){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = '../../assets/';
+        this.assetsPath = 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2Fknight.2.glb?v=1637601428992';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
@@ -86,7 +86,7 @@ class App{
 				self.knight = new Player(options);
                 self.knight.object.visible = false;
 				
-				self.knight.action = 'Dance';
+				self.knight.action = 'ArmatureAction';
 				const scale = 0.003;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
