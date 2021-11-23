@@ -3,19 +3,8 @@ import { OrbitControls } from '../../libs/three125/OrbitControls.js';
 import { Stats } from '../../libs/stats.module.js';
 import { ARButton } from '../../libs/ARButton.js';
 
-
-
-
 class App{
 	constructor(){
-		
-		
-		const texture = new THREE.TextureLoader().load( 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2FSketchUp_Fantasy_Valley_2_Normal_4096.png?v=1637612092870 );
-
-
-		
-		
-		
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
@@ -51,7 +40,7 @@ class App{
 	}	
     
     initScene(){
-        this.geometry = new THREE.BoxBufferGeometry( 0.07* Math.random(), .07* Math.random(), 0.07* Math.random() ); 
+        this.geometry = new THREE.BoxBufferGeometry( 0.06, 0.06, 0.06 ); 
         this.meshes = [];
     }
     
@@ -62,9 +51,7 @@ class App{
         let controller;
         
         function onSelect() {
-		
-		material = new THREE.MeshBasicMaterial( {  } );
-            const material = new THREE.MeshPhongMaterial( {normalMap : texture, color : #f4edff*Math.random()   ,shininess:70} );
+            const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
             const mesh = new THREE.Mesh( self.geometry, material );
             mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
             mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
@@ -90,7 +77,7 @@ class App{
     
 	render( ) {   
         this.stats.update();
-        this.meshes.forEach( (mesh) => { mesh.rotateY( 0.01 );mesh.rotateX( 0.01 );mesh.rotateZ( 0.01 ); });
+        this.meshes.forEach( (mesh) => { mesh.rotateY( 0.01 ); });
         this.renderer.render( this.scene, this.camera );
     }
 }
