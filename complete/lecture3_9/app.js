@@ -12,8 +12,7 @@ class App{
 		
 		const texture = new THREE.TextureLoader().load( 'https://cdn.glitch.me/36793620-b88b-4450-9d8f-66df13208b83%2FSketchUp_Fantasy_Valley_2_Normal_4096.png?v=1637612092870 );
 
-// immediately use the texture for material creation
-const 
+
 		
 		
 		
@@ -65,7 +64,7 @@ const
         function onSelect() {
 		
 		material = new THREE.MeshBasicMaterial( {  } );
-            const material = new THREE.MeshPhongMaterial( {normalMap : texture, color: 0xffffff * Math.random() ,shininess:70} );
+            const material = new THREE.MeshPhongMaterial( {normalMap : texture, emissiveIntensity:2 * Math.random(), displacementMap:texture ,shininess:70} );
             const mesh = new THREE.Mesh( self.geometry, material );
             mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
             mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
