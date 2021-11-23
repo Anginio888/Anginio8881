@@ -60,8 +60,8 @@ class App{
 
     initLine(point) {
         const lineMaterial = new THREE.LineBasicMaterial({
-            color: #6200ff,
-            linewidth: 4,
+            color: 0xffffff,
+            linewidth: 5,
             linecap: 'round'
         });
 
