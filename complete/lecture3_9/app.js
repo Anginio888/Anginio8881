@@ -51,7 +51,7 @@ class App{
         let controller;
         
         function onSelect() {
-            const material = new THREE.MeshPhongMaterial( { color: #f4edff * Math.random(),shininess:2 * Math.random(), depthTest:false} );
+            const material = new THREE.MeshPhongMaterial( { color: #f4edff * Math.random(),emissive : #f4edff * Math.random(), depthTest:false} );
             const mesh = new THREE.Mesh( self.geometry, material );
             mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
             mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
