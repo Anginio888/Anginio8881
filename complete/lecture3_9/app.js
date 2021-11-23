@@ -64,9 +64,9 @@ class App{
         function onSelect() {
 		
 		material = new THREE.MeshBasicMaterial( {  } );
-            const material = new THREE.MeshPhongMaterial( {normalMap : texture, emissiveIntensity:2 , displacementMap:texture ,shininess:70} );
+            const material = new THREE.MeshPhongMaterial( {normalMap : texture, displacementScale :1*Math.random(), displacementMap:texture ,shininess:70} );
             const mesh = new THREE.Mesh( self.geometry, material );
-            mesh.position.set( 0, 0, - 0.3* Math.random() ).applyMatrix4( controller.matrixWorld );
+            mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
             mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
             self.scene.add( mesh );
             self.meshes.push( mesh );
