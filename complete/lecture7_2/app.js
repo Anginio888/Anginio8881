@@ -84,12 +84,12 @@ class App{
 			function ( gltf ) {
 				self.model = gltf.scene;
                 self.model.position.set( 0, 0, -1 );
-				self.scene.add( self.model );
+				self.scene.add( self.k );
 				
                 self.lense = self.model.getObjectByName( "LenseMag" );
                 self.lense.userData.startQuat = self.lense.quaternion.clone();
                 
-                const mixer = new THREE.AnimationMixer( self.model );
+                const mixer = new THREE.AnimationMixer( self.k );
                 const action = mixer.clipAction( gltf.animations[0] );
                 action.loop = THREE.LoopOnce;
                 self.action = action;
